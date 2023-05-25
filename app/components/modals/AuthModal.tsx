@@ -13,7 +13,7 @@ interface AuthModalProps {
 	actionLabel: string;
 	disabled?: boolean;
 	secondaryAction?: () => void;
-	secondaryLabel?: string;
+	secondaryActionLabel?: string;
 }
 
 const AuthModal: React.FC<AuthModalProps> = ({
@@ -26,7 +26,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
 	actionLabel,
 	disabled,
 	secondaryAction,
-	secondaryLabel,
+	secondaryActionLabel,
 }) => {
 	const [showModal, setShowModal] = useState(isOpen);
 	useEffect(() => {
@@ -162,7 +162,10 @@ const AuthModal: React.FC<AuthModalProps> = ({
 								w-full
 								'
 								>
-									<Button icon={IoMdClose} label='Some button' />
+									{secondaryAction && secondaryActionLabel && (
+										<Button disabled={disabled} label={secondaryActionLabel} onClick={handleSecondaryAction} />
+									)}
+									<Button disabled={disabled} label={actionLabel} onClick={handleSubmit} />
 								</div>
 							</div>
 						</div>

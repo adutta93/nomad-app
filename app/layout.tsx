@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={nunito.className}>
 				<ClientOnly>
 					<Navbar />
-					<AuthModal title='Login Modal' isOpen />
+					<AuthModal actionLabel='Submit' isOpen title='Login Modal' />
 				</ClientOnly>
 				{children}
 			</body>
